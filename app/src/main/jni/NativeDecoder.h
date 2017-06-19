@@ -24,13 +24,14 @@
 class NativeDecoder
 {
     public:
+       //explicit关键字只对有一个参数的类构造函数有效, 如果类构造函数参数大于或等于两个时, 是不会产生隐式转换的, 所以explicit关键字也就无效了
         explicit NativeDecoder(JNIEnv *, jclass, jstring, jobject, jobject);
         ~NativeDecoder();
         jobject getBitmap();
 
     private:
         //constants
-        static int const colorMask = 0xFF;
+        static const int  colorMask = 0xFF;
         static int const ARGB_8888 = 2;
         static int const RGB_565 = 4;
         static int const ALPHA_8 = 8;
